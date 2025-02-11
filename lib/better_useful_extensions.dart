@@ -77,45 +77,47 @@ extension BetterWidgetExtensions on Widget {
       hitTestBehavior: HitTestBehavior.translucent,
       onEnter: (v) => setOpacity(0.6),
       onExit: (v) => setOpacity(1.0),
-      child: GestureDetector(
-        behavior: HitTestBehavior.translucent,
-        onTap: disabled ? null : onTap,
-        onLongPress: disabled ? null : onLongPress,
-        onSecondaryTap: disabled ? null : onSecondaryTap,
-        onDoubleTap: disabled ? null : onDoubleTap,
-        onTapDown: disabled || onTap == null
+      child: Listener(
+        onPointerDown: disabled || onTap == null
             ? null
-            : (details) {
+            : (v) {
           isPressed.value = true;
           setOpacity(0.4);
         },
-        onTapUp: disabled || onTap == null
+        onPointerUp: disabled || onTap == null
             ? null
-            : (details) {
+            : (v) {
           isPressed.value = false;
           setOpacity(1.0);
         },
-        onTapCancel: disabled || onTap == null
+        onPointerCancel: disabled || onTap == null
             ? null
-            : ( ) {
+            : (v) {
           isPressed.value = false;
           opacity.value = 1.0;
         },
-        child: ValueListenableBuilder<double>(
-          valueListenable: opacity,
-          builder: (context, currentOpacity, child) => AnimatedOpacity(
-            opacity: disabled ? 0.4 + currentOpacity * 0 : currentOpacity,
-            duration: const Duration(milliseconds: 100),
-            curve: Curves.fastOutSlowIn,
-            child: ValueListenableBuilder<bool>(
-              valueListenable: isPressed,
-              builder: (context, currentIsPressed, child) => AnimatedScale(
-                scale: useScale ? (currentIsPressed ? 0.9 : 1) : 1,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.fastOutSlowIn,
-                child: tooltipMessage.isNotEmpty
-                    ? Tooltip(message: tooltipMessage, child: this)
-                    : this,
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: disabled ? null : onTap,
+          onLongPress: disabled ? null : onLongPress,
+          onSecondaryTap: disabled ? null : onSecondaryTap,
+          onDoubleTap: disabled ? null : onDoubleTap,
+          child: ValueListenableBuilder<double>(
+            valueListenable: opacity,
+            builder: (context, currentOpacity, child) => AnimatedOpacity(
+              opacity: disabled ? 0.4 + currentOpacity * 0 : currentOpacity,
+              duration: const Duration(milliseconds: 100),
+              curve: Curves.fastOutSlowIn,
+              child: ValueListenableBuilder<bool>(
+                valueListenable: isPressed,
+                builder: (context, currentIsPressed, child) => AnimatedScale(
+                  scale: useScale ? (currentIsPressed ? 0.9 : 1) : 1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.fastOutSlowIn,
+                  child: tooltipMessage.isNotEmpty
+                      ? Tooltip(message: tooltipMessage, child: this)
+                      : this,
+                ),
               ),
             ),
           ),

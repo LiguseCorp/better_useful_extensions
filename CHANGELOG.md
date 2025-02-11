@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Optimise interact performance.
+
 ## 0.0.5
 
 * Add widget margin support.
