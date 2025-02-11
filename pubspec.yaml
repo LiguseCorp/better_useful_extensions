@@ -1,7 +1,7 @@
 name: better_useful_extensions
 description: "A collection of useful Flutter extensions for strings, colors, widgets, and more."
 version: 0.0.1
-homepage:
+homepage: https://github.com/LiguseCorp/better_useful_extensions
 
 environment:
   sdk: ^3.6.1
