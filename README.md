@@ -1,39 +1,26 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A collection of useful Flutter extensions for strings, colors, widgets, and more.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+This package provides a collection of useful extension methods to enhance your Flutter development workflow. It offers convenient utilities to simplify common tasks and make your code more expressive and readable.
+
+Currently, it includes extensions for working with:
+
+* **Strings:**  Utilities for string manipulation and conversion, including color parsing from hex codes.
+* **Colors:**  Extensions to simplify color manipulation, hex code generation, and blending.
+* **DateTimes:** Convenient methods for date-related operations.
+* **Brightness:** A simple utility for toggling between light and dark brightness.
+* **Widgets:**  An extension to easily add interactivity to any widget with customizable tap actions, visual feedback, and more.
+* **Numbers:**  Shortcuts for creating `Duration` objects in a more readable way.
+
+This package aims to grow with more helpful extensions in the future, continuously improving your Flutter development experience by providing practical and time-saving tools.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Import and use it.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+Text("Color", style:TextStyle(color: "#2196F3".toColor()));
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
