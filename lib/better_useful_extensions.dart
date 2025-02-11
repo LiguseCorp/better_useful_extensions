@@ -123,6 +123,20 @@ extension BetterWidgetExtensions on Widget {
       ),
     );
   }
+
+  Widget marginOnly({double top = 0, double bottom = 0, double left = 0, double right = 0}) {
+    return Padding(
+      padding: EdgeInsets.only(top: top, bottom: bottom, left: left, right: right),
+      child: this,
+    );
+  }
+
+  Widget marginAll(double value) {
+    return Padding(
+      padding: EdgeInsets.all(value),
+      child: this,
+    );
+  }
 }
 
 extension BetterNumExtensions on num {

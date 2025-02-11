@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Add widget margin support.
+
 ## 0.0.4
 
 * Add color throw exception.
