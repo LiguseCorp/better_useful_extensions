@@ -10,12 +10,10 @@ extension BetterStringExtensions on String {
       try {
         return Color(int.parse(hexCode, radix: 16));
       } catch (e) {
-        debugPrint('Error parsing color string: $this, error: $e');
-        return Colors.black;
+        throw Exception('Error parsing color string: $this, error: $e');
       }
     } else {
-      debugPrint('Invalid color string format: $this');
-      return Colors.black;
+      throw Exception('Error parsing color string: $this, error: $e');
     }
   }
 
