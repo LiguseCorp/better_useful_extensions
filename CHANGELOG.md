@@ -1,3 +1,7 @@
+## 0.0.7
+
+* Lower sdk version requirement.
+
 ## 0.0.6
 
 * Optimise interact performance.
